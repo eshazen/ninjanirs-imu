@@ -1,7 +1,7 @@
-### Footprint positions - created on Wed 17 Jan 2024 07:21:20 AM EST ###
+### Footprint positions - created on Wed 17 Jan 2024 07:29:06 AM EST ###
 ### Printed by KiCad version 7.0.9-7.0.9~ubuntu22.04.1
 ## Unit = mm, Angle = deg.
-## Side : top
+## Side : All
 # Ref     Val            Package                                    PosX       PosY       Rot  Side
 C1        C_Small        C_0402_1005Metric                       61.4000   -61.7000  -90.0000  top
 C2        C_Small        C_0402_1005Metric                       58.4000   -61.7000  -90.0000  top
