@@ -156,6 +156,12 @@
     (property "Datasheet" "~" (at 40.64 38.1 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "CatNo" "" (at 40.64 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "MfgNo" "" (at 40.64 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "imu-adapter"
         (path "/80f499e4-b9c3-489e-bfa7-b9e055e564de"
@@ -180,6 +186,12 @@
     (property "Datasheet" "~" (at 40.64 50.8 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "CatNo" "" (at 40.64 50.8 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "MfgNo" "" (at 40.64 50.8 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "imu-adapter"
         (path "/80f499e4-b9c3-489e-bfa7-b9e055e564de"
@@ -190,7 +202,7 @@
   )
 
   (symbol (lib_id "Connector:AVR-ISP-6") (at 83.82 91.44 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom yes) (on_board yes) (dnp no)
     (uuid ab560e3e-4185-4bcb-bc19-afda9d4fb9ab)
     (property "Reference" "J1" (at 92.71 88.9 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -202,6 +214,12 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" " ~" (at 116.205 105.41 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "CatNo" "2057-PH2-06-UA-ND" (at 88.9 105.41 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "MfgNo" "PH2-06-UA" (at 83.82 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "3" (uuid 41de368c-d154-4a2d-9494-a41aa1e3101e))
@@ -239,6 +257,12 @@
     (property "Datasheet" "~" (at 40.64 44.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "CatNo" "" (at 40.64 44.45 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "MfgNo" "" (at 40.64 44.45 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "imu-adapter"
         (path "/80f499e4-b9c3-489e-bfa7-b9e055e564de"
@@ -263,6 +287,12 @@
     (property "Datasheet" "~" (at 40.64 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "CatNo" "" (at 40.64 31.75 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "MfgNo" "" (at 40.64 31.75 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
     (instances
       (project "imu-adapter"
         (path "/80f499e4-b9c3-489e-bfa7-b9e055e564de"
@@ -285,6 +315,12 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" " ~" (at 18.415 105.41 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "CatNo" "2073-BC020-06-A-0200-0300-L-D-ND" (at 50.8 105.41 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "MfgNo" "BC020-06-A-0200-0300-L-D" (at 50.8 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "3" (uuid 949934c7-5287-4707-b9f3-7e9a5b275019))
