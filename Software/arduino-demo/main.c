@@ -1,6 +1,6 @@
 /*
- * First attempt at code for the ninjaNIRS custom IMU
- * Read an ISM330DHCX on the hardware I2C pins
+ * main.c - essentially a port of BZ Accelerometer_demo
+ * 
  */
 
 #include <stdio.h>
@@ -14,25 +14,15 @@
 #include "imu.h"
 #include "imu_const.h"
 
-// Arduino LED is on PB5
-
-#define LED_DDR DDRB
-#define LED_BIT 5
-#define LED_PORT PORTB
-
 // create a file pointer for read/write to USART0
 FILE usart0_str = FDEV_SETUP_STREAM(USART0SendByte, USART0ReceiveByte, _FDEV_SETUP_RW);
 
-static char buff[40];
-
 int main (void)
 {
-  unsigned char c = ' ';
-    uint8_t loop_cnt = 0;
-    int16_t acc_res[7];
-    int res;
-    bool acc_connected = false;
-
+  uint8_t loop_cnt = 0;
+  int16_t acc_res[7];
+  int res;
+  bool acc_connected = false;
 
   USART0Init();
   stdout = &usart0_str;		/* connect UART to stdout */
@@ -43,9 +33,6 @@ int main (void)
   puts("IMU test");
 
   while (true) {
-    // gpio_put(LED_R_PIN, 1);
-    // gpio_put(LED_G_PIN, 0);
-
     // Accelerometer init
     while (!acc_connected){
       res = init_acc();
@@ -90,9 +77,6 @@ int main (void)
 //      }
     printf("\n");
 
-    //    _delay_ms(20);
-    //    gpio_put(LED_R_PIN, 0);
-    //    gpio_put(LED_G_PIN, 1);       
     _delay_ms(300);
   }
 
