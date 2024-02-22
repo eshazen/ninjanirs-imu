@@ -1,5 +1,5 @@
 #
-# Makefile for UART example
+# Makefile for AVR code
 #
 # NOTE: edit F_OSC and DUDPORT to support either directly programming
 # the hardware using a programming cable, or Arduino bootloader.
@@ -13,7 +13,7 @@ MCU = atmega328
 # 16 MHz for Arduino
 F_OSC = 16000000
 
-EXTRAOPT = -Wno-discarded-qualifiers -DDEBUG
+EXTRAOPT = -Wno-discarded-qualifiers
 
 CFLAGS = -g -Os -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -Wl,-u,vfprintf -lprintf_min -lm
 # no-optimization settings for interrupt code
@@ -39,7 +39,6 @@ AVRDUDE  = avrdude $(DUDEPORT) -p $(DUDEMCU) -y -u
 objects = main.o uart.o i2c.o imu.o
 
 headers = uart.h
-
 
 all: $(objects)  main.hex list
 

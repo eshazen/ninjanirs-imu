@@ -1,3 +1,6 @@
+// i2c.h - header for i2c functions
+// TWI bit rate defined here too
+
 #include <stdint.h>
 
 #define BDIV (F_CPU / 100000 - 16) / 2 + 1    // Puts I2C rate just below 100kHz

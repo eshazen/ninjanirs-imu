@@ -1,8 +1,11 @@
 /*
  * main.c - main program for AVR IMU readout
  * 
- * wait to receive a character (currently anything)
- * send a binary return:
+ * wait to receive a character 'T' or 'A'
+ *   'T' sends test data 1111, 2222 etc
+ *   'A' sends IMU data
+ *
+ * sends a binary return record
  *   <count> <length>
  *
  *   <count> = 14   normal data, 7 16-bit words of Temp, GyroX/Y/Z, Accel X/Y/Z
@@ -22,6 +25,7 @@
 
 void send_data( uint8_t nb, uint8_t* d);
 
+// dummy data for testing
 static int16_t acc_test[] = { 1111, 2222, 3333, 4444, 5555, 6666, 7777 };
 
 int main (void)
@@ -39,8 +43,6 @@ int main (void)
 
   while ( true) {
 
-    while( !USART0CharacterAvailable())
-      ;
     res = USART0ReceiveByte(0);
 
     if( res == 'T') {
@@ -50,11 +52,12 @@ int main (void)
 
     } else if( res == 'A') {
 
+      // send acc data
+      
       // Accelerometer init
       while (!acc_connected){
 	res = init_acc();
-	//      if (res==PICO_ERROR_GENERIC){
-	if (res){      
+	if (res){      		/* error return */
 	  send_data( 1, &res);
 	  _delay_ms(250);
 	  acc_connected = false;
@@ -64,8 +67,7 @@ int main (void)
       }
 
       res = read_acc(acc_res);
-      //    if (res==PICO_ERROR_GENERIC){
-      if (res){    
+      if (res){    		/* error return */
 	send_data( 1, &res);
 	acc_connected = false;
       }
@@ -82,7 +84,10 @@ int main (void)
 
 }
 
-
+//
+// send nb bytes of data from d to serial port
+// (blocking)
+//
 void send_data( uint8_t nb, uint8_t* d) {
   USART0SendByte( nb, 0);
   for( uint8_t i=0; i<nb; i++)

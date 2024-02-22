@@ -1,13 +1,7 @@
-# arduino-demo
+# avr-imu-readout
 
-Initial IMU demo to run on an AVR "bare metal" (gcc-avr and avr-libc).
+Readout the IMU in response to a serial command byte
 
-It initializes everything and prints the 7 values in decimal
-(floats are too expensive).
+send 7 signed 16-bit integers (low byte first)
 
-Based on:
-
-Bernhard Z's demo code
-
-I2C code from USC I've used before
-
+see the code for more details

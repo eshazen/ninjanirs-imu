@@ -14,4 +14,16 @@ Pinout:
 	
 Software should be pretty straightforward, since the built-in peripherals can be used.
 
+## Software in this folder
 
+| Folder             | Description                                                |
+|--------------------|------------------------------------------------------------|
+| `arduino-demo`     | C code (not Arduino) to test the IMU on an Arduino uno     |
+|                    | Prints lines of text with 7 values                         |
+|                    |                                                            |
+| `avr-imu-readout`  | C code to receive command byte and send IMU data in binary |
+|                    |                                                            |
+| `linux-imu-client` | Linux client to read and display binary data from IMU      |
+|                    |                                                            |
+| `BZ_example_code`  | Yes                                                        |
+|                    |                                                            |
