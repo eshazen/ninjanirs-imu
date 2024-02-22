@@ -1,10 +1,19 @@
 // imu.c - IMU functions stolen mostly from BZ
+//
+// re-written a bit to use the unified i2c_io function
+// from USC EE459
+//
 
 #include "i2c.h"
 #include "imu.h"
+#include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
+#include <util/delay.h>
 
-
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 int acc_set_self_test(int8_t st_val)
 {
@@ -23,15 +32,18 @@ int acc_set_self_test(int8_t st_val)
   } else { // normal mode (self-test off)
     buf[1] = 0;
   }
-  i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
+  // i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
+  i2c_io( ACC_ADDR, buf, 2, NULL, 0);
   return 0;
 }
 
 int read_acc_raw(uint8_t res_buf[14])
 {
   // this function reads temperature, accelerometer, and gyro data into res_buf
-  i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_OUT_TEMP_L_ADDR, 1, true);
-  return i2c_read_blocking(ACC_I2C, ACC_ADDR, res_buf, 14, false);
+//  i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_OUT_TEMP_L_ADDR, 1, true);
+//  return i2c_read_blocking(ACC_I2C, ACC_ADDR, res_buf, 14, false);
+  int rc = i2c_io( ACC_ADDR, &ACC_OUT_TEMP_L_ADDR, 1, res_buf, 14);
+  return rc;
 }
 
 int read_acc(int16_t res_buf[7]){
@@ -53,35 +65,60 @@ int init_acc()
   uint8_t buf[3];
 
   // check whether "who am i" register is ok
-  res = i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_WHO_AM_I_ADDR, 1, true);
-  if (res==PICO_ERROR_GENERIC) { // acc not replying to I2C address/command
-    return PICO_ERROR_GENERIC;
-  } else {
-    i2c_read_blocking(ACC_I2C, ACC_ADDR, buf, 1, false);
-    if (buf[0]!=ACC_WHO_AM_I_VAL){ // not the correct model connected
-      return PICO_ERROR_GENERIC;
-    }
-  }  
+//  res = i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_WHO_AM_I_ADDR, 1, true);
+//  if (res==PICO_ERROR_GENERIC) { // acc not replying to I2C address/command
+//    return PICO_ERROR_GENERIC;
+//  } else {
+//    i2c_read_blocking(ACC_I2C, ACC_ADDR, buf, 1, false);
+//    if (buf[0]!=ACC_WHO_AM_I_VAL){ // not the correct model connected
+//      return PICO_ERROR_GENERIC;
+//    }
+//  }  
+  res = i2c_io( ACC_ADDR, &ACC_WHO_AM_I_ADDR, 1,
+		buf, 1);
+#ifdef DEBUG
+    printf("init1 res=0x%x\n", res);
+#endif    
+  if( res) {
+    return res;
+  }
 
   // reset the acc
   buf[0] = ACC_CTRL3_C_ADDR;
   buf[1] = ACC_CTRL3_C_VAL;
-  i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
-  sleep_us(200);
+  //  i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
+  res = i2c_io( ACC_ADDR, buf, 2, NULL, 0);
+#ifdef DEBUG
+  printf("init2 res=0x%x\n", res);
+#endif    
+  //  sleep_us(200);
+  _delay_us(200);
 
   // config acc
   buf[0] = ACC_CTRL1_XL_ADDR;
   buf[1] = ACC_CTRL1_XL_VAL;
   buf[2] = ACC_CTRL2_G_VAL;
-  i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 3, false);
+  //  i2c_write_blocking(ACC_I2C, ACC_ADDR, buf, 3, false);
+  res = i2c_io( ACC_ADDR, buf, 3, NULL, 0);
+#ifdef DEBUG
+  printf("init3 res=0x%x\n", res);
+#endif    
 
   //read back and verify
   buf[0]=0;
   buf[1]=0;
-  i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_CTRL1_XL_ADDR, 1, true);
-  i2c_read_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
+  //  i2c_write_blocking(ACC_I2C, ACC_ADDR, &ACC_CTRL1_XL_ADDR, 1, true);
+  //  i2c_read_blocking(ACC_I2C, ACC_ADDR, buf, 2, false);
+  res=i2c_io( ACC_ADDR, &ACC_CTRL1_XL_ADDR, 1, buf, 2);
+#ifdef DEBUG
+  printf("init4 res=0x%x\n", res);
+#endif    
   if (buf[0]!=ACC_CTRL1_XL_VAL || buf[1]!=ACC_CTRL2_G_VAL){
-    return PICO_ERROR_GENERIC;
+#ifdef DEBUG
+    printf("buf= %x %x expect %x %x\n", buf[0], buf[1], ACC_CTRL1_XL_VAL, ACC_CTRL2_G_VAL);
+#endif    
+    //    return PICO_ERROR_GENERIC;
+    return -1;
   }
 
   return 0;

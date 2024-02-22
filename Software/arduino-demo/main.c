@@ -5,12 +5,14 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include <avr/io.h>
 #include <util/delay.h>
 #include "uart.h"
 #include "i2c.h"
 
 #include "imu.h"
+#include "imu_const.h"
 
 // Arduino LED is on PB5
 
@@ -26,6 +28,11 @@ static char buff[40];
 int main (void)
 {
   unsigned char c = ' ';
+    uint8_t loop_cnt = 0;
+    int16_t acc_res[7];
+    int res;
+    bool acc_connected = false;
+
 
   USART0Init();
   stdout = &usart0_str;		/* connect UART to stdout */
@@ -33,15 +40,62 @@ int main (void)
 
   i2c_init( BDIV);		/* initialize I2C */
 
-  // set up the IMU
-
   puts("IMU test");
 
-  while( 1) {
-    puts("> ");
-    fgets( buff, sizeof( buff), stdin);
-    
+  while (true) {
+    // gpio_put(LED_R_PIN, 1);
+    // gpio_put(LED_G_PIN, 0);
+
+    // Accelerometer init
+    while (!acc_connected){
+      res = init_acc();
+      //      if (res==PICO_ERROR_GENERIC){
+      if (res){      
+	printf("Accelerometer not connected or not replying.\n");
+	//	sleep_ms(250);
+	_delay_ms(250);
+      } else {
+	acc_connected = true;
+      }
+    }
+
+    // every few loops print column headers
+    if (loop_cnt>=9){
+      printf("Temp C   Gyro X   Gyro Y   Gyro Z  Accel X Accel Y Accel Z  \n");
+      loop_cnt = 0;
+    } else {
+      loop_cnt++;
+    }
+
+    res = read_acc(acc_res);
+    //    if (res==PICO_ERROR_GENERIC){
+    if (res){    
+      printf("Warning: Accelerometer not replying. Data not valid!\n");
+      acc_connected = false;
+    }
+
+    // skip the floats on AVR
+    for( int ii=0; ii<7; ii++)
+      printf("%7d ", acc_res[ii]);
+        
+//    printf("%5.1fC ",acc_res[0]*ACC_TEMP_SCF+ACC_TEMP_OFFSET);
+//    for (int ii = 0; ii < 3; ii++)
+//      {
+//	printf("%6.1fdps ", acc_res[ii+1]*ACC_GYRO_SCF);
+//      }
+//    printf("  ");
+//    for (int ii = 0; ii < 3; ii++)
+//      {
+//	printf("%6.3fg  ", acc_res[ii+4]*ACC_ACCEL_SCF);
+//      }
+    printf("\n");
+
+    //    _delay_ms(20);
+    //    gpio_put(LED_R_PIN, 0);
+    //    gpio_put(LED_G_PIN, 1);       
+    _delay_ms(300);
   }
+
 }
 
 

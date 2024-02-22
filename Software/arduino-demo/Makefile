@@ -13,6 +13,8 @@ MCU = atmega328
 # 16 MHz for Arduino
 F_OSC = 16000000
 
+EXTRAOPT = -Wno-discarded-qualifiers -DDEBUG
+
 CFLAGS = -g -Os -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -Wl,-u,vfprintf -lprintf_min -lm
 # no-optimization settings for interrupt code
 CFLAGS_NOOPT = -g -O0 -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -I../util -Wl,-u,vfprintf -lprintf_min
@@ -34,7 +36,7 @@ DUDEMCU = m328p
 
 AVRDUDE  = avrdude $(DUDEPORT) -p $(DUDEMCU) -y -u 
 
-objects = main.o uart.o
+objects = main.o uart.o i2c.o imu.o
 
 headers = uart.h
 

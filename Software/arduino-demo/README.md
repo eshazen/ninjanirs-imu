@@ -1,7 +1,13 @@
-# UART_stdio
+# arduino-demo
 
-This example shows how the stdio.h facilities can be used in avr-libc.  Note that this is a pretty minimal subset of the standard library on a real OS.
+Initial IMU demo to run on an AVR "bare metal" (gcc-avr and avr-libc).
 
-See [the avr-libc manual](https://www.nongnu.org/avr-libc/user-manual/group__avr__stdio.html) for details.
+It initializes everything and prints the 7 values in decimal
+(floats are too expensive).
 
-In particular, there is no input editing (backspace, etc) are just put in the buffer.  See example code [uart.c](https://www.nongnu.org/avr-libc/examples/stdiodemo/uart.c) for how to fix this.
+Based on:
+
+Bernhard Z's demo code
+
+I2C code from USC I've used before
+
