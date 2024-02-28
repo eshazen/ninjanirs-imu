@@ -13,6 +13,8 @@
 
 static int fd;
 
+#define BAUD_RATE B115200
+
 #define NWORD 7
 
 int read_serial( void *bp, int nchar) {
@@ -48,7 +50,7 @@ int main( int argc, char*argv[] )
   if( argc > 2)
     cmd = argv[2][0];
 
-  if( (fd = sio_open( port, B9600)) < 0) {
+  if( (fd = sio_open( port, BAUD_RATE)) < 0) {
     printf("Error opening serial port %s\n", port);
     exit( 1);
   }

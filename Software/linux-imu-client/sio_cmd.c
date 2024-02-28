@@ -5,6 +5,7 @@
  * sio_cmd()            -  send a command, retrieve response
  */
 
+#define TRY_125K
 
 #define DEBUG
 
@@ -18,6 +19,8 @@
 #include <strings.h>
 #include <string.h>
 #include <stdlib.h>
+
+#include <serial.h>
         
 #include "sio_cmd.h"
 
@@ -122,7 +125,15 @@ int sio_open( char *dev, speed_t baud) {
   bzero(&newtio, sizeof(newtio));
 
   /* set baud rate, 8 bits, no modem control, enable reading */
+#ifdef TRY_125K
+  newtio.c_cflag &= ~(CBAUD | CBAUDEX);
+  newtio.c_cflag |= B38400;
+  if( tcsetattr( fd, TCSANOW, &newtio)) return 0;
+  struct serial_struct ser;
+
+#endif
   newtio.c_cflag = baud | CS8 | CLOCAL | CREAD;
+#else
   newtio.c_iflag = 0;   /* raw input */
   newtio.c_oflag = 0;   /* raw output */
         

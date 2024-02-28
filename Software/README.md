@@ -23,6 +23,11 @@ Software should be pretty straightforward, since the built-in peripherals can be
 |                    |                                                            |
 | `avr-imu-readout`  | C code to receive command byte and send IMU data in binary |
 |                    |                                                            |
+| `avr-imu-blinky`   | Blink the LED for quick hardware test                      |
+|                    |                                                            |
+| `avr-imu-led-test` | Read the IMU and encode somehow on the LED                 |
+|                    | (for easy testing without a UART)                          |
+|                    |                                                            |
 | `linux-imu-client` | Linux client to read and display binary data from IMU      |
 |                    |                                                            |
 | `BZ_example_code`  | Yes                                                        |

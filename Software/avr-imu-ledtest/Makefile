@@ -17,7 +17,7 @@ F_OSC = 8000000
 # 1 MHz for on-board oscillator with divide-by-8
 # F_OSC = 1000000
 
-EXTRAOPT = -Wno-discarded-qualifiers -DAVR_TARGET
+EXTRAOPT = -Wno-discarded-qualifiers
 
 CFLAGS = -g -Os -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -Wl,-u,vfprintf -lprintf_min -lm
 # no-optimization settings for interrupt code
@@ -49,7 +49,7 @@ DUDEMCU = m168p
 
 AVRDUDE  = avrdude $(DUDEPORT) -p $(DUDEMCU) -y -u 
 
-objects = main.o uart.o i2c.o imu.o leds.o
+objects = main.o uart.o i2c.o imu.o
 
 headers = uart.h
 
