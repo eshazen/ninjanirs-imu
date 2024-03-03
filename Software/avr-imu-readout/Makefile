@@ -5,19 +5,45 @@
 # the hardware using a programming cable, or Arduino bootloader.
 #
 
+# options: uno, avr
+chip=uno
+# options: avrisp2, usbtiny, arduino
+prog=avrisp2
+
+$(info chip is $(chip))
+$(info programmer is $(prog))
+
 # 328 for arduino, 168 for target
+ifeq ($(chip),uno)
+MCU = atmega328
+F_OSC = 16000000
+EXTRAOPT = -Wno-discarded-qualifiers
+DUDEMCU = m328p
+endif
+
+ifeq ($(chip),avr)
 MCU = atmega168
-
-# 8 MHz for on-board oscillator
 F_OSC = 8000000
-
-# 16 MHz for Arduino
-# F_OSC = 16000000
-
-# 1 MHz for on-board oscillator with divide-by-8
-# F_OSC = 1000000
-
 EXTRAOPT = -Wno-discarded-qualifiers -DAVR_TARGET
+DUDEMCU = m168p
+endif
+
+ifeq ($(prog), usbtiny)
+DUDEPORT  = -c usbtiny -P usb
+endif
+
+ifeq ($(prog), avrisp2)
+DUDEPORT  = -c avrispv2 -P usb
+endif
+
+ifeq ($(prog), arduino)
+DUDEPORT  = -c arduino -P /dev/ttyACM0
+endif
+
+$(info MCU is $(MCU))
+$(info DUDPORT is $(DUDEPORT))
+$(info EXTRAOPT is $(EXTRAOPT))
+
 
 CFLAGS = -g -Os -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -Wl,-u,vfprintf -lprintf_min -lm
 # no-optimization settings for interrupt code
@@ -30,21 +56,6 @@ FUSEOPT = -U lfuse:w:0xe2:m
 
 RFUSEOPT = -U hfuse:r:-:h -U lfuse:r:-:h -U efuse:r:-:h
 
-# programmer configuration for avrdude programming utility
-
-# USBTiny programmer
-DUDEPORT  = -c usbtiny -P usb
-
-# for AVRISP programmer on USB
-# DUDEPORT  = -c avrispv2 -P usb
-
-# for Arduino bootloader
-# DUDEPORT  = -c arduino -P /dev/ttyACM0
-
-# set to correct device type; usually an Arduino Uno is 328p
-# DUDEMCU = m328p
-# target is m168p
-DUDEMCU = m168p
 
 
 AVRDUDE  = avrdude $(DUDEPORT) -p $(DUDEMCU) -y -u 

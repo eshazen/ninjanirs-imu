@@ -24,6 +24,7 @@
 #include "imu_const.h"
 
 // #define LED_BLINKS
+#define DEBUG_COMMANDS
 
 #include "leds.h"
 
