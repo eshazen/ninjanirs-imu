@@ -13,7 +13,8 @@
 
 static int fd;
 
-#define BAUD_RATE B115200
+// #define BAUD_RATE B115200
+#define BAUD_RATE B9600
 
 #define NWORD 7
 

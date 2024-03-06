@@ -5,9 +5,9 @@
  * sio_cmd()            -  send a command, retrieve response
  */
 
-#define TRY_125K
+// #define TRY_125K
 
-#define DEBUG
+// #define DEBUG
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -20,8 +20,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <serial.h>
-        
 #include "sio_cmd.h"
 
 static FILE *tfp = NULL;
@@ -133,7 +131,6 @@ int sio_open( char *dev, speed_t baud) {
 
 #endif
   newtio.c_cflag = baud | CS8 | CLOCAL | CREAD;
-#else
   newtio.c_iflag = 0;   /* raw input */
   newtio.c_oflag = 0;   /* raw output */
         

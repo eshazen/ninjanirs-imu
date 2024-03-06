@@ -6,7 +6,7 @@
 #
 
 # options: uno, avr
-chip=avr
+chip=uno
 # options: avrisp2, usbtiny, arduino
 prog=avrisp2
 
@@ -43,7 +43,6 @@ endif
 $(info MCU is $(MCU))
 $(info DUDPORT is $(DUDEPORT))
 $(info EXTRAOPT is $(EXTRAOPT))
-$(info F_OSC is $(F_OSC))
 
 
 CFLAGS = -g -Os -mmcu=$(MCU) $(EXTRAOPT) -DF_CPU=$(F_OSC) -Wl,-u,vfprintf -lprintf_min -lm
