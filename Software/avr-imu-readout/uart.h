@@ -1,8 +1,8 @@
 #include <avr/io.h>
 
-// #define USART_BAUDRATE 9600
-#define USART_BAUDRATE 57600
-// #define UBRR_VALUE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
+#define USART_BAUDRATE 9600
+// #define USART_BAUDRATE 57600
+#define UBRR_VALUE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 
 //
 // calculation above is wrong for some values
@@ -14,7 +14,7 @@
 // 125000   = 3    (OK for 115.2k with 8.5% err)
 // 250000   = 1
 
-#define UBRR_VALUE 3
+// #define UBRR_VALUE 51
 
 void USART0Init(void);
 int USART0SendByte(char u8Data, FILE *stream);

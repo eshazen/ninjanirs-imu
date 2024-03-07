@@ -522,7 +522,7 @@
       (net 6 "/RXD") (pinfunction "Pin_3") (pintype "passive") (tstamp 9bbcbd02-8fdf-4d02-bd12-95278fc23433))
     (pad "4" thru_hole oval (at 0 3.81) (size 1 1) (drill 0.65) (layers "*.Cu" "*.Mask")
       (net 2 "GND") (pinfunction "Pin_4") (pintype "passive") (tstamp 41e92b70-b44f-4a3d-a5f7-aae554e01c2f))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_1.27mm.3dshapes/PinHeader_1x04_P1.27mm_Vertical.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_1.27mm.3dshapes/PinHeader_1x04_P1.27mm_Vertical.wrl" hide
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -592,6 +592,11 @@
       (net 22 "/SCL") (pinfunction "SCL") (pintype "bidirectional") (solder_mask_margin 0.102) (tstamp 24826bc0-4462-4882-8d31-7a654799bab8))
     (pad "P14" smd rect (at -0.5 -1 270) (size 0.3 0.48) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 27 "/SDA") (pinfunction "SDA/SDI/SDO") (pintype "bidirectional") (solder_mask_margin 0.102) (tstamp b0aa3c6d-396d-44c0-a083-72db1be82fa7))
+    (model "${KIPRJMOD}/models/LGA-14L_STM.step"
+      (offset (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
   )
 
   (footprint "Resistor_SMD:R_0402_1005Metric" (layer "F.Cu")
@@ -825,10 +830,15 @@
       (net 3 "/nRESET") (pinfunction "~{RST}") (pintype "passive") (tstamp b1947869-d97e-45f6-b82e-1724674fcaec))
     (pad "6" thru_hole oval (at 0 5 90) (size 0.85 0.85) (drill 0.5) (layers "*.Cu" "*.Mask")
       (net 2 "GND") (pinfunction "GND") (pintype "passive") (tstamp abf5c722-2300-4570-bd7f-a888e01d8325))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_1.00mm.3dshapes/PinHeader_1x06_P1.00mm_Vertical.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_1.00mm.3dshapes/PinHeader_1x06_P1.00mm_Vertical.wrl" hide
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/models/BC065-06-A-L-D.STEP"
+      (offset (xyz 0 -2.54 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 90))
     )
   )
 
@@ -953,7 +963,7 @@
     (pts (xy 50 55) (xy 62 55))
     (height -2)
     (orientation 0)
-    (gr_text "12.0 mm" (at 56 51.85) (layer "User.2") (tstamp 1bfc4d00-2190-44a3-aa72-1bb8752d212f)
+    (gr_text "0.5 in" (at 56 51.85) (layer "User.2") (tstamp 1bfc4d00-2190-44a3-aa72-1bb8752d212f)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (format (prefix "") (suffix "") (units 3) (units_format 1) (precision 1))
@@ -963,7 +973,7 @@
     (pts (xy 46 62.5) (xy 62 63))
     (height 3)
     (orientation 0)
-    (gr_text "16.0 mm" (at 54 64.35) (layer "User.2") (tstamp 816fd9e5-af74-4273-8ca7-c318bb568995)
+    (gr_text "0.6 in" (at 54 64.35) (layer "User.2") (tstamp 816fd9e5-af74-4273-8ca7-c318bb568995)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (format (prefix "") (suffix "") (units 3) (units_format 1) (precision 1))
@@ -973,7 +983,7 @@
     (pts (xy 46 57.5) (xy 46 62.5))
     (height -3)
     (orientation 1)
-    (gr_text "5.0 mm" (at 41.85 60 90) (layer "User.2") (tstamp a87f3221-aa76-4ce1-99b5-7945680fba1f)
+    (gr_text "0.2 in" (at 41.85 60 90) (layer "User.2") (tstamp a87f3221-aa76-4ce1-99b5-7945680fba1f)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (format (prefix "") (suffix "") (units 3) (units_format 1) (precision 1))
@@ -983,7 +993,7 @@
     (pts (xy 62 55) (xy 62 63))
     (height 4)
     (orientation 1)
-    (gr_text "8.0 mm" (at 64.85 59 90) (layer "User.2") (tstamp ad6e37dc-f88f-4851-bc9e-613b535bc67f)
+    (gr_text "0.3 in" (at 64.85 59 90) (layer "User.2") (tstamp ad6e37dc-f88f-4851-bc9e-613b535bc67f)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (format (prefix "") (suffix "") (units 3) (units_format 1) (precision 1))

@@ -8,7 +8,11 @@
 // 0x6A if SA0 = low, 0x6B if SA0 = high
 // (SA0 pin on sparkfun board is pulled high by default)
 
+#ifdef AVR_TARGET
 const uint8_t ACC_ADDR= (0x6A<<1); /* need 8-bit address for our i2c code */
+#else
+const uint8_t ACC_ADDR= (0x6B<<1); /* need 8-bit address for our i2c code */
+#endif
 const uint8_t ACC_WHO_AM_I_ADDR = 0x0F;
 const uint8_t ACC_WHO_AM_I_VAL = 0x6B;
 const uint8_t ACC_CTRL3_C_ADDR = 0x12; 
