@@ -8,7 +8,7 @@
 # options: uno, avr
 chip=avr
 # options: avrisp2, usbtiny, arduino
-prog=avrisp2
+prog=usbtiny
 
 $(info chip is $(chip))
 $(info programmer is $(prog))

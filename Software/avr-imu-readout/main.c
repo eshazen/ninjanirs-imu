@@ -1,15 +1,18 @@
 /*
  * main.c - main program for AVR IMU readout
  * 
- * wait to receive a character 'T' or 'A'
- *   'T' sends test data 1111, 2222 etc
- *   'A' sends IMU data
+ * wait to receive any character
  *
  * sends a binary return record
- *   <count> <length>
+ *   <echo> <count> <length> <checksum>
  *
- *   <count> = 14   normal data, 7 16-bit words of Temp, GyroX/Y/Z, Accel X/Y/Z
- *   <count> = 1    error code or other info
+ * offset 0      <echo>     = xx   echo of byte received
+ * offset 1      <count>    = 14   normal data, 
+ * offset 2..15  <data>     =      (7) 16-bit words of Temp, GyroX/Y/Z, Accel X/Y/Z
+ * offset 16     <checksum> =      uint8_t sum of bytes at offset 1..15
+ *
+ * if any error occurs, <count> = 1 and the error code is somehow related
+ * to the I2C error.
  */
 
 #include <stdio.h>
@@ -104,8 +107,8 @@ int main (void)
       while (!acc_connected){
 	res = init_acc();
 	if (res){      		/* error return */
-	  chr = 'E';
-	  send_data( 1, &chr);
+	  //	  chr = 'E';
+	  //	  send_data( 1, &chr);
 	  send_data( 1, &res);
 	  _delay_ms(250);
 	  acc_connected = false;
@@ -140,12 +143,16 @@ int main (void)
 
 //
 // send nb bytes of data from d to serial port
-// (blocking)
+// (blocking) followed by checksum
 //
 void send_data( uint8_t nb, uint8_t* d) {
+  uint8_t sum = nb;
   USART0SendByte( nb, 0);
-  for( uint8_t i=0; i<nb; i++)
+  for( uint8_t i=0; i<nb; i++) {
     USART0SendByte( d[i], 0);
+    sum += d[i];
+  }
+  USART0SendByte( sum, 0);
 }
 
 
