@@ -3447,6 +3447,16 @@
 		)
 		(uuid "ffa6cd6e-151b-4e6e-b377-580a64ee9f5f")
 	)
+	(text "1.1"
+		(exclude_from_sim no)
+		(at 271.272 193.294 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9d792097-fd83-4ad8-997c-f7b85268b08d")
+	)
 	(text "Test Point"
 		(exclude_from_sim no)
 		(at 60.96 133.35 0)
@@ -3457,6 +3467,16 @@
 			(justify left bottom)
 		)
 		(uuid "a535dfc4-0417-4dab-845f-6b19cd2c09a4")
+	)
+	(text "NinjaNIRS IMU Splitter\nRev 1.1 (fix U1 P/N)"
+		(exclude_from_sim no)
+		(at 202.438 173.482 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+		)
+		(uuid "adc449fe-22ce-465a-bccd-980064a17216")
 	)
 	(label "TX2"
 		(at 66.04 86.36 0)
@@ -5966,7 +5986,7 @@
 				(hide yes)
 			)
 		)
-		(property "CatNo" "31-AZ1117CH2-3.3TRG1CT-ND"
+		(property "CatNo" "AZ1117CH-3.3TRG1DICT-ND"
 			(at 78.74 31.75 0)
 			(effects
 				(font
@@ -5974,7 +5994,7 @@
 				)
 			)
 		)
-		(property "MfgNo" "AZ1117CH2-3.3TRG1"
+		(property "MfgNo" "AZ1117CH-3.3TRG1"
 			(at 77.47 35.56 0)
 			(effects
 				(font
