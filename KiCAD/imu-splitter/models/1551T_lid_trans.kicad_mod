@@ -1,4 +1,4 @@
-(footprint "1551T_lid"
+(footprint "1551T_lid_trans"
 	(version 20240108)
 	(generator "pcbnew")
 	(generator_version "8.0")
@@ -15,7 +15,7 @@
 			)
 		)
 	)
-	(property "Value" "1551T_lid"
+	(property "Value" "1551T_lid_trans"
 		(at 4.572 4.572 0)
 		(unlocked yes)
 		(layer "F.Fab")
@@ -300,21 +300,9 @@
 			"eaeff99b-2903-4648-b2c3-4fe03172b09a"
 		)
 	)
-	(model "${KIPRJMOD}/3D/1551T_Lid_trans.step"
-		(hide yes)
-		(offset
-			(xyz 22.5044 -22.606 22.225)
-		)
-		(scale
-			(xyz 1 1 1)
-		)
-		(rotate
-			(xyz 0 0 0)
-		)
-	)
 	(model "${KIPRJMOD}/3D/1551T_Lid_trans.wrl"
 		(offset
-			(xyz 23.495 -23.495 6.35)
+			(xyz 22.225 -22.86 12.7)
 		)
 		(scale
 			(xyz 0.3937 0.3937 0.3937)

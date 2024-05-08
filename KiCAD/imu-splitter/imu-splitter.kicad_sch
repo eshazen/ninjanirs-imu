@@ -3842,7 +3842,7 @@
 		)
 		(uuid "ffa6cd6e-151b-4e6e-b377-580a64ee9f5f")
 	)
-	(text "1.1"
+	(text "2.0"
 		(exclude_from_sim no)
 		(at 271.272 193.294 0)
 		(effects
@@ -3907,7 +3907,7 @@
 		(uuid "1de14363-8427-4e79-849f-0b53867b4fe9")
 	)
 	(label "RX6"
-		(at 35.56 91.44 0)
+		(at 35.56 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4138,7 +4138,7 @@
 		(uuid "916d1cb2-2c6a-4c27-a96d-8ec3d76645a6")
 	)
 	(label "TX6"
-		(at 35.56 93.98 0)
+		(at 35.56 91.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5803,7 +5803,7 @@
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9e31c367-1939-4cf8-98e4-49c0559e0289")
@@ -6244,7 +6244,7 @@
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e6fe74ac-dd9b-4b1b-869e-1af9a9cb25a9")
@@ -6266,7 +6266,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "models:1551T_lid"
+		(property "Footprint" "models:1551T_lid_trans"
 			(at 46.99 186.69 0)
 			(effects
 				(font
