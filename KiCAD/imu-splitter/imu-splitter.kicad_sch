@@ -5487,6 +5487,162 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_02x13_Odd_Even")
+		(at 88.9 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board no)
+		(dnp yes)
+		(uuid "75d3420d-84a2-42b4-90f9-86c2bc4ac182")
+		(property "Reference" "J10"
+			(at 81.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3221-26-0100-00"
+			(at 99.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "models:SAMTEC_SHF-113-01-L-D-RA"
+			(at 88.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 88.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 88.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "CatNo" "1175-1745-ND"
+			(at 95.25 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MfgNo" "3221-26-0100-00"
+			(at 88.9 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "6dd10d58-75f7-4230-848c-02d89398ea8d")
+		)
+		(pin "8"
+			(uuid "5565eecf-9754-49eb-92f5-a003304d9ec2")
+		)
+		(pin "6"
+			(uuid "b413d567-bff1-4221-8787-ce78be0a6e4b")
+		)
+		(pin "4"
+			(uuid "dde61efc-1b68-4ef7-b69c-db79cc9d460d")
+		)
+		(pin "13"
+			(uuid "3eb669c3-93c7-49fb-b3dd-d833e2c231e3")
+		)
+		(pin "19"
+			(uuid "7ff33634-68b3-43a8-bf99-a3fbd1fb5c32")
+		)
+		(pin "7"
+			(uuid "ab7851c7-74f2-4c6c-aad6-a3f5e98dc23c")
+		)
+		(pin "25"
+			(uuid "aae743ff-152e-4233-8a79-31a6e001cf34")
+		)
+		(pin "10"
+			(uuid "54e3e1b8-7af2-4ecd-b856-44017911b05b")
+		)
+		(pin "3"
+			(uuid "79bdd674-0398-4f71-a9c5-97d38d9fa5c8")
+		)
+		(pin "2"
+			(uuid "cef20909-5622-4d2b-973a-d0a714a70db1")
+		)
+		(pin "9"
+			(uuid "18b4d7d5-95c3-4d2b-aaf3-4caa6ec6e1e2")
+		)
+		(pin "23"
+			(uuid "ed6fccef-4f67-4e12-9e42-1a8e1273daad")
+		)
+		(pin "26"
+			(uuid "01ce2ae7-c39a-42a0-8c86-30629d1acf76")
+		)
+		(pin "20"
+			(uuid "3cb663bb-f944-4b32-958b-823882d935fb")
+		)
+		(pin "18"
+			(uuid "6cb08320-f814-4f9a-af63-5185c3b220a5")
+		)
+		(pin "24"
+			(uuid "7a4582ec-29ca-40bd-9b55-1b775d2d3c23")
+		)
+		(pin "11"
+			(uuid "ca7ce0cc-7e7b-417d-9063-85af89b54dff")
+		)
+		(pin "12"
+			(uuid "a2af973c-54e2-4492-94fb-4846a1a12d61")
+		)
+		(pin "21"
+			(uuid "0d9d7561-4687-4bae-ac02-3ffd95656a1d")
+		)
+		(pin "22"
+			(uuid "42d89b26-8685-4862-be19-b45afb80cd67")
+		)
+		(pin "16"
+			(uuid "d21d6d7a-17e0-44ca-a6d1-ea821b735b0c")
+		)
+		(pin "15"
+			(uuid "28474281-ab93-462a-a16e-8748ec3b0136")
+		)
+		(pin "14"
+			(uuid "0b1fa276-4768-433e-b911-9412e3cfc62a")
+		)
+		(pin "17"
+			(uuid "3c1da78f-b6bd-456a-8f79-e535d3ca441b")
+		)
+		(pin "1"
+			(uuid "286b3638-539a-49de-96c6-3428e68c8b83")
+		)
+		(instances
+			(project "imu-splitter"
+				(path "/3ddff065-8308-49ba-816e-3ac23a1c142d"
+					(reference "J10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 53.34 139.7 0)
 		(unit 1)
@@ -5803,7 +5959,7 @@
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
-		(on_board no)
+		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9e31c367-1939-4cf8-98e4-49c0559e0289")
@@ -5844,6 +6000,24 @@
 			)
 		)
 		(property "Description" "Housing"
+			(at 45.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "CatNo" "164-1551TGY-ND"
+			(at 45.72 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MfgNo" "1551TGY"
 			(at 45.72 175.26 0)
 			(effects
 				(font
