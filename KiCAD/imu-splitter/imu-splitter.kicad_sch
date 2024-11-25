@@ -4685,7 +4685,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/560/LED_SMD_Selector_Guide_Jun2020.pdf"
 			(at 53.34 49.53 0)
 			(effects
 				(font
@@ -6513,7 +6513,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/560/LED_SMD_Selector_Guide_Jun2020.pdf"
 			(at 96.52 49.53 0)
 			(effects
 				(font
