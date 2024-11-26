@@ -5,6 +5,15 @@
 #include <stdio.h>
 #include "uart.h"
 
+// send a string
+void USART0SendString( char* str, FILE *stream) {
+  while( *str) {
+    USART0SendByte( *str, 0);
+    ++str;
+  }
+}
+
+
 // initialize the UART.  Baud rate set in uart.h
 void USART0Init(void)
 {

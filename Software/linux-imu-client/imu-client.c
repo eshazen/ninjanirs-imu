@@ -1,6 +1,21 @@
 //
 // simple client to read and display binary IMU data
 // 
+// 
+// | Offset | Value    | Size    | Notes                         |
+// |--------|----------|---------|-------------------------------|
+// | 0      | 0x91     | 8 bits  | sync byte 1                   |
+// | 1      | 0x57     | 8 bits  | sync byte 2                   |
+// | 2      | count    | 8 bits  | = 14                          |
+// | 3, 4   | temp     | 16 bits | raw temperature               |
+// | 5, 6   | gyro_x   | 16 bits | raw gyro reading              |
+// | 7, 8   | gyro_y   | 16 bits |                               |
+// | 9, 10  | gyro_z   | 16 bits |                               |
+// | 11, 12 | accel_x  | 16 bits |                               |
+// | 13, 14 | accel_y  | 16 bits |                               |
+// | 15, 16 | accel_z  | 16 bits |                               |
+// | 17     | checksum | 8 bits  | unsigned sum of offsets 1..15 |
+
 
 #include "imu.h"
 #include "imu_const.h"

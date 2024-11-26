@@ -26,7 +26,21 @@
 #include "imu.h"
 #include "imu_const.h"
 
-// #define LED_BLINKS
+// send text data
+#define TEXT_DATA
+
+// readout at fixed interval (no Rx data needed)
+#define AUTO_INTERVAL 500
+
+// send magic number first
+#define MAGIC_NUMBER 0x5791
+
+#ifdef MAGIC_NUMBER
+const uint8_t magic_lo = MAGIC_NUMBER & 0xff;
+const uint8_t magic_hi = (MAGIC_NUMBER >> 8) & 0xff;
+#endif
+
+#define LED_BLINKS
 // #define DEBUG_COMMANDS
 
 #include "leds.h"
@@ -49,13 +63,20 @@ void send_data( uint8_t nb, uint8_t* d);
 // dummy data for testing
 static int16_t acc_test[] = { 1111, 2222, 3333, 4444, 5555, 6666, 7777 };
 
+// buffer for text data
+#ifdef TEXT_DATA
+static char btext[10];
+static int16_t tval;
+#endif
+
+static uint8_t loop_cnt = 0;
+static int16_t acc_res[7];
+static uint8_t res;
+static uint8_t chr;
+static bool acc_connected = false;
+
 int main (void)
 {
-  uint8_t loop_cnt = 0;
-  int16_t acc_res[7];
-  uint8_t res;
-  uint8_t chr;
-  bool acc_connected = false;
 
   USART0Init();			/* initialize USART (no interrupts) */
 
@@ -74,7 +95,7 @@ int main (void)
 
 #ifdef LED_BLINKS
   // blink the LED
-  blink_led( 3, 250);
+  blink_led( 3, 250);		/* blink 3 times at power-up */
 #endif
   
 #ifdef DEBUG_COMMANDS
@@ -84,6 +105,12 @@ int main (void)
 
   while ( true) {
 
+// --- auto interval 
+#ifdef AUTO_INTERVAL
+    _delay_ms( AUTO_INTERVAL);
+#else
+
+// --- respond to input data
     res = USART0ReceiveByte(0);
 
 #ifdef DEBUG_COMMANDS
@@ -96,19 +123,21 @@ int main (void)
       send_data( 14, (uint8_t *)acc_test);
 
     } else if( res == 'A') {
+
+#endif
+
+#endif      
+
 #ifdef LED_BLINKS
       blink_led( 1, 100);
 #endif
 
-#endif
-
+      //--- read out the IMU and send the data, either way
 
       // Accelerometer init
       while (!acc_connected){
 	res = init_acc();
 	if (res){      		/* error return */
-	  //	  chr = 'E';
-	  //	  send_data( 1, &chr);
 	  send_data( 1, &res);
 	  _delay_ms(250);
 	  acc_connected = false;
@@ -146,6 +175,30 @@ int main (void)
 // (blocking) followed by checksum
 //
 void send_data( uint8_t nb, uint8_t* d) {
+
+  // text data
+#ifdef TEXT_DATA
+  if( nb == sizeof(acc_res)) {	/* normal 7-word data */
+    for( int i=0; i<sizeof(acc_res); i += 2) {
+      tval = d[i] | (d[i+1] << 8);
+      snprintf( btext, sizeof(btext), "%d", tval);
+      USART0SendString( btext, 0);
+      if( i == sizeof(acc_res)-2) {
+	USART0SendByte( '\r', 0);
+	USART0SendByte( '\n', 0);
+      } else {
+	USART0SendByte( ',', 0);
+      }	
+    }
+  }
+#else
+
+  // binary data
+#ifdef MAGIC_NUMBER
+  USART0SendByte( magic_lo, 0);
+  USART0SendByte( magic_hi, 0);
+#endif  
+
   uint8_t sum = nb;
   USART0SendByte( nb, 0);
   for( uint8_t i=0; i<nb; i++) {
@@ -153,6 +206,7 @@ void send_data( uint8_t nb, uint8_t* d) {
     sum += d[i];
   }
   USART0SendByte( sum, 0);
+#endif
 }
 
 
