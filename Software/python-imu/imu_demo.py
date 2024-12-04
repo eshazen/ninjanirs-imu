@@ -13,7 +13,8 @@ import sys
 import time
 
 # connect to device.  For windows use e.g. COM3 for device
-ser = serial.Serial('/dev/ttyUSB0', 9600)
+# ser = serial.Serial('/dev/ttyUSB0', 9600)
+ser = serial.Serial('COM3', 9600)
 
 full_scale = 4.0                # IMU full-scale in G
 factor = full_scale/32767       # scale factor for G
@@ -27,7 +28,7 @@ X = []                          # X axis array
 ns = 0                          # sample counter
 
 samples = 10                    # default sample count
-if(len(sys.argv)):
+if(len(sys.argv) > 1):
     samples = int(sys.argv[1])
 
 # get starting time in ms
