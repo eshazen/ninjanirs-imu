@@ -1,9 +1,9 @@
-/*
+;/*
  * main.c - main program for AVR IMU readout
  * 
  * wait to receive any character
- *
- * sends a binary return record
+ * ----------------------------------------
+ * Binary output:
  *   <echo> <count> <length> <checksum>
  *
  * offset 0      <echo>     = xx   echo of byte received
@@ -13,6 +13,12 @@
  *
  * if any error occurs, <count> = 1 and the error code is somehow related
  * to the I2C error.
+ *
+ * ----------------------------------------
+ * Text output:
+ * temp,gyroX,gyroY,gyroZ,accelX,accelY,accelZ   (all signed 16-bit decimal)
+ *
+ * only accel can be sent by setting FIRST_VAR to 4
  */
 
 #include <stdio.h>
@@ -26,11 +32,15 @@
 #include "imu.h"
 #include "imu_const.h"
 
+// First variable to send:
+//   temp = 0, gyro = 1..3, Accel = 4..6
+#define FIRST_VAR 4
+
 // send text data
 #define TEXT_DATA
 
 // readout at fixed interval (no Rx data needed)
-#define AUTO_INTERVAL 500
+#define AUTO_INTERVAL 100
 
 // send magic number first
 #define MAGIC_NUMBER 0x5791
@@ -176,10 +186,10 @@ int main (void)
 //
 void send_data( uint8_t nb, uint8_t* d) {
 
-  // text data
+  // ---------- text data
 #ifdef TEXT_DATA
   if( nb == sizeof(acc_res)) {	/* normal 7-word data */
-    for( int i=0; i<sizeof(acc_res); i += 2) {
+    for( int i=2*FIRST_VAR; i<sizeof(acc_res); i += 2) {
       tval = d[i] | (d[i+1] << 8);
       snprintf( btext, sizeof(btext), "%d", tval);
       USART0SendString( btext, 0);
@@ -193,7 +203,7 @@ void send_data( uint8_t nb, uint8_t* d) {
   }
 #else
 
-  // binary data
+  // ---------- binary data
 #ifdef MAGIC_NUMBER
   USART0SendByte( magic_lo, 0);
   USART0SendByte( magic_hi, 0);
@@ -201,7 +211,7 @@ void send_data( uint8_t nb, uint8_t* d) {
 
   uint8_t sum = nb;
   USART0SendByte( nb, 0);
-  for( uint8_t i=0; i<nb; i++) {
+  for( uint8_t i=2*FIRST_VAR; i<nb; i++) {
     USART0SendByte( d[i], 0);
     sum += d[i];
   }
