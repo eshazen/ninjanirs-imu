@@ -174,22 +174,6 @@
 		(remove_unused_layers no)
 		(uuid "b6851bb6-2772-4fc4-8795-da76997fe35a")
 	)
-	(pad "5" thru_hole circle
-		(at -1.905 6.35)
-		(size 4 4)
-		(drill 3.2)
-		(layers "*.Cu" "*.Mask")
-		(remove_unused_layers no)
-		(uuid "04e0e5c6-9033-46f8-8b41-818f5754d886")
-	)
-	(pad "6" thru_hole circle
-		(at 5.72 6.35)
-		(size 4 4)
-		(drill 3.2)
-		(layers "*.Cu" "*.Mask")
-		(remove_unused_layers no)
-		(uuid "dc1a04b2-3236-4417-a056-fd36c0138d6f")
-	)
 	(model "${KIPRJMOD}/models/RJ11.step"
 		(offset
 			(xyz -3.81 -13.97 0)
