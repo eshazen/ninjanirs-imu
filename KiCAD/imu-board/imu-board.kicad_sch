@@ -3328,7 +3328,7 @@
 				(hide yes)
 			)
 		)
-		(property "CatNo" "2073-BC075-06-A-L-ACT-ND"
+		(property "CatNo" "2073-BC065-06-A-L-D-ND"
 			(at 131.572 87.122 0)
 			(effects
 				(font
@@ -3336,7 +3336,7 @@
 				)
 			)
 		)
-		(property "MfgNo" "BC075-06-A-L-A"
+		(property "MfgNo" "BC065-06-A-L-D"
 			(at 106.68 95.25 0)
 			(effects
 				(font
