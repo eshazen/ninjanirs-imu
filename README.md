@@ -1,6 +1,11 @@
 # ninjanirs-imu
 
-IMU and multiplexer designs for ninjaNIRS
+IMU and multiplexer designs for ninjaNIRS.  PCBs in this repo:
+
+* `KiCAD/imu-adapter` - programming adapter for MCU programming
+* `KiCAD/imu-board` - the IMU board.  Now V2.  Accommodates an optional RJ-11 jack on the back
+* `KiCAD/imu-rj-adapter` - RJ-11 adapter for V1 IMU boards (obsolete)
+* `KiCAD/imu-splitter` - splitter for connecting IMU to NinjaNIRS readout via ribbon cable
 
 ## IMU Board
 
