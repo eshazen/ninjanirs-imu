@@ -2422,16 +2422,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 170.18) (xy 80.01 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e1c5e73-d3e3-4ae5-aa62-32f8d64c2732")
-	)
-	(wire
-		(pts
 			(xy 93.98 162.56) (xy 93.98 170.18)
 		)
 		(stroke
@@ -2452,13 +2442,13 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 135.89) (xy 78.74 135.89)
+			(xy 74.93 110.49) (xy 74.93 170.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "15150ca0-faa0-46f5-887a-25869f5c4088")
+		(uuid "15188201-c3bb-41f3-9047-1f492bc95c94")
 	)
 	(wire
 		(pts
@@ -2592,6 +2582,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 107.95) (xy 77.47 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49bd3a64-7af5-4581-9a70-980d6dd7d3f7")
+	)
+	(wire
+		(pts
 			(xy 162.56 113.03) (xy 167.64 113.03)
 		)
 		(stroke
@@ -2672,6 +2672,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 162.56) (xy 80.01 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63ef9b0a-3a6e-45b5-a4aa-736d96cdaafe")
+	)
+	(wire
+		(pts
 			(xy 167.64 133.35) (xy 167.64 135.89)
 		)
 		(stroke
@@ -2682,13 +2692,13 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 133.35) (xy 76.2 170.18)
+			(xy 72.39 110.49) (xy 74.93 110.49)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "74e9297e-2139-4c6c-b027-cabf634febc4")
+		(uuid "6b3c3f93-8215-431f-9d64-c1037ee0c49c")
 	)
 	(wire
 		(pts
@@ -2902,13 +2912,13 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 162.56) (xy 80.01 162.56)
+			(xy 72.39 107.95) (xy 77.47 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d0326792-f736-4c90-bdc3-7fa0e0536777")
+		(uuid "d0ae6e8c-396f-4ab6-a68c-7fb267d5770c")
 	)
 	(wire
 		(pts
@@ -2919,26 +2929,6 @@
 			(type default)
 		)
 		(uuid "d9d59947-5afc-4c54-b214-b212765f4cfb")
-	)
-	(wire
-		(pts
-			(xy 78.74 135.89) (xy 78.74 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dae7717f-821e-4dc7-b24c-0f1e14acf12c")
-	)
-	(wire
-		(pts
-			(xy 76.2 133.35) (xy 72.39 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "db13420d-c53d-4475-8357-aa16ada344c1")
 	)
 	(wire
 		(pts
@@ -2959,6 +2949,16 @@
 			(type default)
 		)
 		(uuid "ec4debf8-1e96-4d24-8124-cb8af66e8d30")
+	)
+	(wire
+		(pts
+			(xy 74.93 170.18) (xy 80.01 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef320aa7-5006-4baf-9233-4cc4976651c0")
 	)
 	(wire
 		(pts
@@ -4555,7 +4555,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bf75b6ab-9260-4254-ad28-48d04ff30cd8")
-		(property "Reference" "U3"
+		(property "Reference" "U1"
 			(at 46.99 109.22 0)
 			(effects
 				(font
@@ -4707,7 +4707,7 @@
 		(instances
 			(project "imu-board"
 				(path "/d6f02836-2043-4ec3-a06f-a2f5cd682bee"
-					(reference "U3")
+					(reference "U1")
 					(unit 1)
 				)
 			)

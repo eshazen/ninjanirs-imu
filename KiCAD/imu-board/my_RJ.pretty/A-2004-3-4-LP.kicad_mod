@@ -71,7 +71,7 @@
 			(width 0.1)
 			(type default)
 		)
-		(layer "F.SilkS")
+		(layer "F.Fab")
 		(uuid "b4493ac3-0c06-4f76-8404-efc29128bee5")
 	)
 	(fp_line
@@ -81,7 +81,7 @@
 			(width 0.1)
 			(type default)
 		)
-		(layer "F.SilkS")
+		(layer "F.Fab")
 		(uuid "d4df3017-547c-4166-bbf3-7ad3155dbb39")
 	)
 	(fp_line
@@ -91,7 +91,7 @@
 			(width 0.1)
 			(type default)
 		)
-		(layer "F.SilkS")
+		(layer "F.Fab")
 		(uuid "cd78edcd-7a4f-49e4-933c-29726778bafe")
 	)
 	(fp_line
@@ -101,7 +101,7 @@
 			(width 0.1)
 			(type default)
 		)
-		(layer "F.SilkS")
+		(layer "F.Fab")
 		(uuid "a26efc97-13ab-40c5-862a-c9c29389673b")
 	)
 	(fp_text user "${REFERENCE}"
