@@ -3738,7 +3738,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "http://www.assmann-wsw.com/uploads/datasheets/ASS_7041_CO.pdf"
 			(at 74.93 40.64 90)
 			(effects
 				(font
