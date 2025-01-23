@@ -3054,12 +3054,12 @@
 		)
 		(uuid "7ad8f3d1-0d02-47fb-8739-a92d889d0e33")
 	)
-	(text "E. Hazen\nRev 1.0\n2024-01"
+	(text "E. Hazen\nRev 2.0\n2025-01"
 		(exclude_from_sim no)
-		(at 252.73 182.88 0)
+		(at 248.158 184.404 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.905 1.905)
 			)
 			(justify left bottom)
 		)
@@ -3089,6 +3089,7 @@
 	)
 	(label "nRESET"
 		(at 80.01 120.65 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3099,6 +3100,7 @@
 	)
 	(label "SCL"
 		(at 82.55 118.11 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3109,6 +3111,7 @@
 	)
 	(label "SDA"
 		(at 82.55 115.57 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3119,6 +3122,7 @@
 	)
 	(label "MOSI"
 		(at 78.74 90.17 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3129,6 +3133,7 @@
 	)
 	(label "MISO"
 		(at 78.74 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3139,6 +3144,7 @@
 	)
 	(label "TXD"
 		(at 82.55 128.27 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3149,6 +3155,7 @@
 	)
 	(label "SCK"
 		(at 78.74 95.25 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3159,6 +3166,7 @@
 	)
 	(label "TXD"
 		(at 93.98 39.37 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3169,6 +3177,7 @@
 	)
 	(label "RXD"
 		(at 82.55 125.73 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3179,6 +3188,7 @@
 	)
 	(label "RXD"
 		(at 93.98 41.91 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
