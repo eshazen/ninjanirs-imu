@@ -1,0 +1,14 @@
+### Footprint positions - created on 2025-01-29T10:27:59-0500 ###
+### Printed by KiCad version 8.0.7-8.0.7-0~ubuntu24.04.1
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val            Package                                    PosX       PosY       Rot  Side
+C1        0.1uF          C_0402_1005Metric                       60.0710   -61.9760  180.0000  top
+C2        0.1uF          C_0402_1005Metric                       51.1810   -60.1980   90.0000  top
+D1        LED            LED_0402_1005Metric                     52.7280   -69.4690    0.0000  top
+JP1       -OMIT-         R_0402_1005Metric                       60.1980   -70.6120  180.0000  top
+JP2       -OMIT-         R_0402_1005Metric                       60.1980   -68.7070  180.0000  top
+R1        680            R_0402_1005Metric                       52.7280   -68.0720    0.0000  top
+U1        ATmega168A-MM  QFN-28-1EP_4x4mm_P0.45mm_EP2.4x2.4mm    54.6570   -60.1530  -90.0000  top
+U2        ISM330DHCX     LGA-14L                                 59.7070   -59.3260   90.0000  top
+## End
