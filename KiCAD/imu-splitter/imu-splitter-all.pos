@@ -1,0 +1,13 @@
+### Footprint positions - created on 2025-01-29T10:34:04-0500 ###
+### Printed by KiCad version 8.0.7-8.0.7-0~ubuntu24.04.1
+## Unit = mm, Angle = deg.
+## Side : All
+# Ref     Val              Package                                             PosX       PosY       Rot  Side
+C1        10uF             C_0805_2012Metric_Pad1.18x1.45mm_HandSolder     184.7570  -105.4870  -90.0000  top
+C2        22uF             C_0805_2012Metric_Pad1.18x1.45mm_HandSolder     196.0000  -105.6750  -90.0000  top
+D1        LED              LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder   183.3600  -109.5510  180.0000  top
+D2        LED              LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder   197.3300  -109.5510    0.0000  top
+R1        1.5k             R_0805_2012Metric_Pad1.20x1.40mm_HandSolder     182.2170  -105.4870  -90.0000  top
+R2        510              C_0805_2012Metric_Pad1.18x1.45mm_HandSolder     198.7270  -105.6355  -90.0000  top
+U1        AP2114H-3.3TRG1  SOT-223-3_TabPin2                               190.0000  -108.0000  -90.0000  top
+## End
