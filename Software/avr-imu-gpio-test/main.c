@@ -32,10 +32,11 @@
 
 //---- configuration which must (sometimes) happen before user #includes
 
-#define DEBOUNCE_MS 1000
+// #define DEBOUNCE_MS 1000
+#define PRESCALE_N 10
 
 // send fake data (no IMU)
-#define NO_IMU
+// #define NO_IMU
 
 // trigger on edge of PD0 (D0) to send data
 // (this also disables UART Rx)
@@ -55,7 +56,7 @@
 // send magic number first
 #define MAGIC_NUMBER 0x5791
 
-#define LED_BLINKS
+// #define LED_BLINKS
 
 #include "uart.h"
 #include "i2c.h"
@@ -102,14 +103,13 @@ static bool acc_connected = false;
 
 // last state of PD0 for trigger
 #ifdef PD0_TRIGGER
-static uint8_t pd0_last;
 volatile uint8_t pd0_triggered;
 volatile uint32_t last_time;
+volatile uint8_t pd0_count;
 #endif
 
 int main (void)
 {
-
   USART0Init();			/* initialize USART (no interrupts) */
   timer_setup();		/* setup timer 0 for 1kHz interrupts */
 
@@ -140,6 +140,7 @@ int main (void)
 #endif
   
 #ifdef PD0_TRIGGER
+  pd0_count = 0;
   sei();			// enable interrupts for pin change only
   last_time = get_millis();
 #endif
@@ -251,12 +252,18 @@ void send_data( uint8_t nb, uint8_t* d) {
 #ifdef PD0_TRIGGER
 ISR( PCINT2_vect) {
 
+#ifdef PRESCALE_N
+  ++pd0_count;
+  if( pd0_count < PRESCALE_N)
+    return;
+  pd0_count = 0;
+#endif
+
 #ifdef DEBOUNCE_MS
   if( (get_millis() - last_time) < DEBOUNCE_MS)
     return;
-#endif
-
   last_time = get_millis();
+#endif
 
   ++pd0_triggered;
 }

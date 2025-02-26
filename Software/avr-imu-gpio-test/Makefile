@@ -6,7 +6,7 @@
 #
 
 # options: uno, avr
-chip=uno
+chip=avr
 # options: avrisp2, usbtiny, arduino
 prog=usbtiny
 
