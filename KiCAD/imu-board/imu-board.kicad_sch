@@ -3089,7 +3089,6 @@
 	)
 	(label "nRESET"
 		(at 80.01 120.65 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3100,7 +3099,6 @@
 	)
 	(label "SCL"
 		(at 82.55 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3111,7 +3109,6 @@
 	)
 	(label "SDA"
 		(at 82.55 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3122,7 +3119,6 @@
 	)
 	(label "MOSI"
 		(at 78.74 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3133,7 +3129,6 @@
 	)
 	(label "MISO"
 		(at 78.74 92.71 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3144,7 +3139,6 @@
 	)
 	(label "TXD"
 		(at 82.55 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3155,7 +3149,6 @@
 	)
 	(label "SCK"
 		(at 78.74 95.25 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3166,7 +3159,6 @@
 	)
 	(label "TXD"
 		(at 93.98 39.37 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3177,7 +3169,6 @@
 	)
 	(label "RXD"
 		(at 82.55 125.73 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3188,7 +3179,6 @@
 	)
 	(label "RXD"
 		(at 93.98 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

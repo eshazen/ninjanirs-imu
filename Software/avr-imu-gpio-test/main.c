@@ -158,14 +158,6 @@ int main (void)
     while( !pd0_triggered)
       ;
     pd0_triggered = 0;
-
-//    // wait for state change to LOW on PD0
-//    // <FIXME> this should be a pin-change interrupt, possibly with debounce
-//    while(1) {
-//      pd0 = PIND & 1;
-//     break if( pd0 != pd0_last && pd0 == 0);
-//      pd0_last = pd0;
-//    }
 #else    
     res = USART0ReceiveByte(0);
 #endif
