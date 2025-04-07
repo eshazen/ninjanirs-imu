@@ -3054,7 +3054,7 @@
 		)
 		(uuid "7ad8f3d1-0d02-47fb-8739-a92d889d0e33")
 	)
-	(text "E. Hazen\nRev 2.0\n2025-01"
+	(text "E. Hazen\nRev 2.1\n2025-02"
 		(exclude_from_sim no)
 		(at 248.158 184.404 0)
 		(effects
@@ -4555,7 +4555,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bf75b6ab-9260-4254-ad28-48d04ff30cd8")
-		(property "Reference" "U1"
+		(property "Reference" "U3"
 			(at 46.99 109.22 0)
 			(effects
 				(font
@@ -4707,7 +4707,7 @@
 		(instances
 			(project "imu-board"
 				(path "/d6f02836-2043-4ec3-a06f-a2f5cd682bee"
-					(reference "U1")
+					(reference "U3")
 					(unit 1)
 				)
 			)
