@@ -1,5 +1,6 @@
-;/*
- * main.c - main program for AVR IMU readout
+/*
+ * main.c - main program for AVR IMU readout (as used by NinjaNIRS)
+ *
  * 
  * wait to receive any character
  * ----------------------------------------
@@ -34,7 +35,7 @@
 
 // First variable to send:
 //   temp = 0, gyro = 1..3, Accel = 4..6
-#define FIRST_VAR 4
+#define FIRST_VAR 0
 
 // send text data
 #define TEXT_DATA

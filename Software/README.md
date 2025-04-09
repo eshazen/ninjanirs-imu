@@ -30,8 +30,9 @@ Software should be pretty straightforward, since the built-in peripherals can be
 | `avr-imu-led-test`  | Read the IMU and encode somehow on the LED             |
 |                     | (for easy testing without a UART)                      |
 |                     |                                                        |
-| `avr-imu-gpio-test` | Test of GPIO trigger for IMU readout                   |
-|                     | (can run on Arduino with fake data / no IMU)           |
+| `avr-imu-gpio-test` | **AVR software to readout IMU**                        |
+|                     | Version using UART Rx as edge trigger for readout      |
+|                     | As used by senior design team 2025                     |
 |                     |                                                        |
 | `linux-imu-client`  | Linux client to read and display binary data from IMU  |
 |                     |                                                        |

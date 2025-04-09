@@ -1,5 +1,5 @@
 /*
- * main.c - main program for AVR IMU readout
+ * main.c - main program for AVR IMU readout (as used by senior design)
  * 
  * Triggered version:  use pin change on PD0 (aka UART Rx)
  * Send output.  Limit rate to 1/DEBOUNCE_MS
