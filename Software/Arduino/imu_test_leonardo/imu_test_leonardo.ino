@@ -49,6 +49,7 @@ void loop() {
 
   int nb = p-buff;
   Serial.print("Count: ");
+  Serial.println( nb);
   if( nb == 17 && buff[1] == 14) {
     uint8_t sum = buff[1];
     Serial.println("IMU data:");
@@ -64,14 +65,14 @@ void loop() {
     Serial.print( (uint8_t)buff[16]);
     Serial.print(" ");
     Serial.println( sum);
-
+  }   
+  
     Serial.println("raw dump:");
       Serial.println( nb);
     for( int i=0; i<nb; i++) {
       Serial.print(i);
       Serial.print(": ");
-      Serial.println( (int)buff[i]);
+      Serial.println( (int)buff[i], HEX);
     }
-  }
 
 }

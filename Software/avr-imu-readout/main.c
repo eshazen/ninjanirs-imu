@@ -38,20 +38,20 @@
 #define FIRST_VAR 0
 
 // send text data
-#define TEXT_DATA
+// #define TEXT_DATA
 
 // readout at fixed interval (no Rx data needed)
-#define AUTO_INTERVAL 100
+// #define AUTO_INTERVAL 100
 
 // send magic number first
-#define MAGIC_NUMBER 0x5791
+// #define MAGIC_NUMBER 0x5791
 
 #ifdef MAGIC_NUMBER
 const uint8_t magic_lo = MAGIC_NUMBER & 0xff;
 const uint8_t magic_hi = (MAGIC_NUMBER >> 8) & 0xff;
 #endif
 
-#define LED_BLINKS
+// #define LED_BLINKS
 // #define DEBUG_COMMANDS
 
 #include "leds.h"

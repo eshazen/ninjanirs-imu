@@ -14,7 +14,8 @@
 // 125000   = 3    (OK for 115.2k with 8.5% err)
 // 250000   = 1
 
-#define UBRR_VALUE 51
+// #define UBRR_VALUE 51
+#define UBRR_VALUE 1
 
 void USART0Init(void);
 void USART0SendString( char* str, FILE *stream);
