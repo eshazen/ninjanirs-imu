@@ -22,9 +22,9 @@ Adapter:  ![](Images/adapter.jpeg?raw=true)
 | 3      | RxD      | Data in or trigger to IMU |
 | 4      | GND      | Ground                    |
 
-![](Images/v1-imu-pinout.jpeg?raw=true)
+V1 Pinout: ![](Images/v1-imu-pinout.jpg?raw=true)
 
-![](Images/v2-imu-pinout.jpeg?raw=true)
+V2 Pinout: ![](Images/v2-imu-pinout.jpg?raw=true)
 
 Pin 2 provides the data out from the IMU.  The firmware supplied for
 "other" (non-fNIRS) users can be compiled with various options, but
