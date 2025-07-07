@@ -31,6 +31,8 @@ Pin 2 provides the data out from the IMU.  The firmware supplied for
 the usual one is that a pulse on the `RxD` pin causes the IMU data to
 be read and transmitted on the `TxD` pin.
 
+Data is transmitted using the asynchronous serial protocol (aka "UART") at 9600 baud.
+
 The default data format is three 16-bit integers separated by commas,
 representing acceleration along the X, Y and Z axis.
 
