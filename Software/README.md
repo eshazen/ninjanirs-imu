@@ -21,7 +21,7 @@ Software should be pretty straightforward, since the built-in peripherals can be
 | `arduino-demo`      | C code (not Arduino) to test the IMU on an Arduino uno |
 |                     | Prints lines of text with 7 values                     |
 |                     |                                                        |
-| `avr-imu-readout`   | **AVR software to readout IMU**                        |
+| `avr-imu-readout`   | (obsolete readout software)                            |
 |                     | Either wait for command byte or timer                  |
 |                     | Send data in binary or CSV                             |
 |                     |                                                        |
@@ -32,9 +32,13 @@ Software should be pretty straightforward, since the built-in peripherals can be
 |                     |                                                        |
 | `avr-imu-gpio-test` | **AVR software to readout IMU**                        |
 |                     | Version using UART Rx as edge trigger for readout      |
-|                     | As used by senior design team 2025                     |
+|                     | As used by fNIRS at 250k baud (set in `uart.h`)        |
+|                     | As used by senior design team 2025 at 9600 baud        |
 |                     |                                                        |
 | `linux-imu-client`  | Linux client to read and display binary data from IMU  |
+|                     |                                                        |
+| `python-imu`        | Python client `imu_250k_test.py` reads fNIRS version   |
+|                     | at 250k baud and displays                              |
 |                     |                                                        |
 | `BZ_example_code`   | Yes                                                    |
 |                     |                                                        |

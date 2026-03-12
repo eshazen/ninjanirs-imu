@@ -21,6 +21,27 @@
  * temp,gyroX,gyroY,gyroZ,accelX,accelY,accelZ   (all signed 16-bit decimal)
  *
  * only accel can be sent by setting FIRST_VAR to 4
+ *
+ * NOTES ON CONFIGURATION:
+ *
+ * Set baud rate by editing UBRR_VALUE in uart.h
+ *
+ * Set AUTO_INTERVAL (and unset PD0_TRIGGER) for periodic readout
+ *   note that this is approximate as it uses _delay_ms()
+ * Set PD0_TRIGGER and (and unset AUTO_INTERVAL) for triggered readout
+ *
+ * Set TEXT_DATA for CSV output
+ * Unset TEXT_DATA for binary output
+ *
+ * Set FIRST_VAR to determine what data is sent
+ *    temp = 0, gyro = 1..3, Accel = 4..6
+ *
+ * for fNIRS:
+ *   #define UBRR_VALUE 1
+ *   #define PD0_TRIGGER
+ *   #define FIRST_VAR 0
+ *   // don't define AUTO_INTERVAL
+ *   // don't define TEXT_DATA
  */
 
 #include <stdio.h>
@@ -32,8 +53,8 @@
 
 //---- configuration which must (sometimes) happen before user #includes
 
-// #define DEBOUNCE_MS 1000
-#define PRESCALE_N 10
+#define DEBOUNCE_MS 100
+#define PRESCALE_N 1
 
 // send fake data (no IMU)
 // #define NO_IMU
