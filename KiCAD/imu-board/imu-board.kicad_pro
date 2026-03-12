@@ -519,7 +519,7 @@
       "plot": "gerber/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "imu-board.step",
       "svg": "",
       "vrml": ""
     },
